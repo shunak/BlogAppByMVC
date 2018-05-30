@@ -27,17 +27,31 @@ class UserRepository extends DbRepository
 
 
 
+// get DB record from user id
+
+	public function fetchByUserName($user_name)
+	{
+		$sql = "SELECT * FROM user WHERE user_name = :user_name";
+
+// bind user_name value and fetch(get single record) user name from DB 
+		return $this->fetch($sql,array(':user_name'=>$user_name));
+
+	}
 
 
+// judge if ID double count
+	public function isUniqueUserName($user_name)
+	{
+		$sql = "SELECT COUNT(id) as count FROM user WHERE user_name = :user_name";
 
+		$row = $this->fetch($sql, array(':user_name'=>$user_name));
+		if($row['count']==='0'){
+			return true;
+		}
 
+		return false;
 
-	test
-
-
-
-
-
+	}
 
 
 }
