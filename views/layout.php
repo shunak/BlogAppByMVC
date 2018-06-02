@@ -4,13 +4,13 @@
 <head>
 
 	<meta http-equiv="Content-Type" content="text/html; charaset=utf-8">
-	<title><?php íf (isset($title)): echo $this->escape(Stitle) . ' - ';endif;?>Mini Blog</title>
+	<title><?php if(isset($title)): echo $this->escape($title) . ' - ';endif;?>Mini Blog</title>
 
 </head>
 <body>
 
 	<div id ="header">
-		<h1><href=" <?php echo $base_url; ?>/">Mini Blog</a></h1>
+		<h1><a href=" <?php echo $base_url; ?>/">Mini Blog</a></h1>
 	</div>
 
 	<div id="main">
