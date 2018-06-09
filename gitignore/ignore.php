@@ -4,3 +4,7 @@ mysql -u root -p mini_blog
 pw admin
 
 
+
+test
+
+
