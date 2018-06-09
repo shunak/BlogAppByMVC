@@ -9,8 +9,6 @@ class AccountController extends Controller
             '_token' => $this->generateCsrfToken('account/signup'),
         ));
     }
-    
-
     public function registerAction()
     {
     	if(!$this->request->isPost()){
