@@ -1,0 +1,4 @@
+how to db access by shell
+
+mysql -u root -p mini_blog
+pw admin
