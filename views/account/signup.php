@@ -39,7 +39,7 @@
             <tr>
                 <th>パスワード</th>
                 <td>
-                    <input type="password" name="password" value="<?php echo $this>escape($password); ?>">
+                    <input type="password" name="password" value="<?php echo $this->escape($password); ?>">
                 </td>
             
             </tr>
