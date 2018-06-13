@@ -6,7 +6,11 @@
 
 <input type="hidden" name="_token" value="<?= $this->escape($_token);?>">
 
-<?php //todo error ?>
+
+<?php if(isset($errors) && count($errors)>0):?>
+<?php echo $this->render('errors',array('errors'=>$errors)); ?>
+<?php endif;?>
+
 
 <textarea name="body" cols="60" rows="2"><?= $this->escape($body);?></textarea>
 
@@ -19,18 +23,8 @@
 
 <div id="statuses">
     <?php foreach ($statuses as $status): ?>
-    <div class="status">
-        <div class="status_content">
-            <?= $this->escape($status['user_name']);?>
-            <?= $this->escape($status['body']);?>
-        </div>
-        <div>
-            <? $this->escape($status['created_at']);?>
-        </div>
-    </div>
-
+    <?php echo $this->render('status/status',array('status'=>$status));?>
     <?php endforeach;?>
-
 </div>
 
 
