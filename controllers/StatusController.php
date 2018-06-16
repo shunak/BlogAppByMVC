@@ -57,5 +57,25 @@ class StatusController extends Controller
 
     }
     
+
+
+
+    public function userAction($params)
+    {
+        $user=$this->db_manager->get('User')->fetchByUserName($params['user_name']);
+        if($user){
+            $this->forward404();
+        }
+
+        $statuses=$this->db_manager->get('status')->fetchAllByUserId($user['id']);
+
+        return $this->render(array(
+            'user'=>$user,
+            'statuses'=>$statuses,
+        ));
+    }
+
+
+    
 }
 

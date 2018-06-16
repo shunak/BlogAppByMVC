@@ -1,9 +1,21 @@
 <div class="status">
     <div class="status_content">
-        <?= $this->escape($status['user_name']);?>
+        <a href="<?= $base_url;?>/user/<?= $this->escape($status['user_name']);?>">
+            <?= $this->escape($status['user_name']);?>
+        </a>
         <?= $this->escape($status['body']);?>
     </div>
     <div>
-        <? $this->escape($status['created_at']);?>
+        <a href="<?= $base_url;?>/status/<?= $this->escape($status['id']);?>">
+            <?= $this->escape($status['created_at']);?>
+        </a>
     </div>
 </div>
+
+
+
+
+
+
+
+
