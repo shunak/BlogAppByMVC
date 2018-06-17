@@ -77,5 +77,15 @@ class StatusController extends Controller
 
 
     
+    public function showAction($params)
+    {
+        
+    }
+
+
+
+
+
+
 }
 
