@@ -9,6 +9,7 @@ class AccountController extends Controller
             '_token' => $this->generateCsrfToken('account/signup'),
         ));
     }
+
     public function registerAction()
     {
     	if(!$this->request->isPost()){
@@ -73,25 +74,18 @@ class AccountController extends Controller
 
 
 
+    public function signinAtion()
+    {
+        if($this->session->isAuthenticated()){
+            return $this->redirect('/account');
+        }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        return $this->render(array(
+            'user_name'=>'',
+            'password'=>'',
+            '_token'=> $this->generateCsrfToken('account/signin'),
+        ));
+    }
 
 
 }
