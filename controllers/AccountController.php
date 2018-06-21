@@ -62,9 +62,6 @@ class AccountController extends Controller
 
     }
 
-
-
-
     public function indexAction()
     {
         $user = $this->session->get('user');
@@ -86,6 +83,43 @@ class AccountController extends Controller
             '_token'=> $this->generateCsrfToken('account/signin'),
         ));
     }
+
+
+
+    public function authenticateAction()
+    {
+        if($this->session->isAuthenticated()){
+            return $this->redirect('/account');
+        }
+
+        if(!$this->request->isPost()){
+            $this->forward404();
+        }
+
+        $token=$this->request->getPost('_token');
+        if(!$this->checkCsrfToken('account/signin',$token)){
+            return $this->redirect('/account/signin');
+        }
+
+
+
+
+
+        
+
+
+    }
+
+
+
+
+
+
+
+
+
+
+
 
 
 }
