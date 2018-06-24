@@ -140,6 +140,19 @@ class AccountController extends Controller
 
     }
 
+    public function signoutAction()
+    {
+        $this->session->clear();
+        $this->session->setAuthenticated('false');
+
+        return $this->redirect('/account/signin');
+    }
+
+
+
+
+
+
 }
 
 
