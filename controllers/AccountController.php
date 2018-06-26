@@ -2,6 +2,11 @@
 
 class AccountController extends Controller
 {
+
+    protected $auth_actions = array('index','signout');
+
+
+
     public function signupAction(){
         return $this->render(array(
             'user_name'=>'',
@@ -149,7 +154,26 @@ class AccountController extends Controller
     }
 
 
+    public function userAction($params)
+    {
+        $following = null;
+        if($this->session->isAuthenticated()){
+            $my = $this->session->get('user');
+            if($my['id']!==$user['id']){
+                $following = $this->db_manager->get('Following')
+                    ->isFollowing($my['id'],$user['id']);
 
+            }
+        }
+        
+        return $this->render(array(
+            'follow'=>$following,
+            '_token'=>$this->generateCsrfToken('account/follow'),
+        ));
+
+
+
+    }
 
 
 
