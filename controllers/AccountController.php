@@ -67,13 +67,19 @@ class AccountController extends Controller
 
     }
 
+
     public function indexAction()
     {
+        
         $user = $this->session->get('user');
+        $followings = $this->dbb_manager->get('User')->fetchAllFollowingsByUserId($user['id']);
 
-        return $this->render(array('user'=>$user));
+        return $this->render(array(
+            'user'=>$user,
+            'followings'=>$followings,
+        ));
+
     }
-
 
 
     public function signinAtion()
@@ -171,9 +177,23 @@ class AccountController extends Controller
             '_token'=>$this->generateCsrfToken('account/follow'),
         ));
 
-
-
     }
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

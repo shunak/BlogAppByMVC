@@ -32,6 +32,8 @@ class MiniBlogApplication extends Application
 	}
 
 
+
+	
 	protected function configure()
 	{
 		$this->db_manager->connect('master', array(
