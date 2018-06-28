@@ -15,10 +15,22 @@
 <?php endif;?>
 <?php endif;?>
 
-
 <div id="statuses">
     <?php foreach ($statuses as $statuses):?> 
     <?= $this->render('status/status', array('status'=>$status));?>
     <?php endforeach;?>
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
 
